@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ToDoListApp.Models.ToDoList>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+
+<div class="row">
+    <div class="col-8">
+        <h2 class="text-info">Daily Task List</h2>
+    </div>
+    <div class="col-4 text-right" style="text-align: right;">
+        <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; Add New ToDo List</a>
+    </div>
+</div>
+<br />
+<table class="table table-striped border">
+    <thead style="text-align:center">
+        <tr class="table-info">
+            <th class="title">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th class="title">
+            <th>
+                @Html.DisplayNameFor(model => model.AdditionTime)
+            </th>
+            <th class="title">
+                @Html.DisplayNameFor(model => model.ExpectedTime)
+            </th>
+            <th class="title">
+                Controls
+            </th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center">
+@foreach (var item in Model) {
+        <tr>
+            <td class="text-white">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td class="text-white">
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td class="text-white">
+                @Html.DisplayFor(modelItem => item.AdditionTime)
+            </td>
+            <td class="text-white">
+                @Html.DisplayFor(modelItem => item.ExpectedTime)
+            </td>
+            <td>
+                <div class="btn-group">
+                    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id">
+                        <i class="far fa-edit"></i>
+                    </a> 
+                    <a asp-action="Details" class="btn btn-success" asp-route-id="@item.Id">
+                        <i class="fas fa-list-ul"></i>
+                    </a> 
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

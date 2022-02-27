@@ -9,7 +9,8 @@ namespace ToDoListApp.Models
 
         [Required]
         [MaxLength(50)]
-        public string Content { get; set; }
+        [DisplayName("Content")]
+        public string Name { get; set; }
 
         [Required]
         [MaxLength(2500)]
@@ -17,7 +18,7 @@ namespace ToDoListApp.Models
 
         [Required]
         [DisplayName("Addition Time")]
-        public DataType AdditionTime { get; set; }
+        public DateTime AdditionTime { get; set; }
 
         [DisplayName("Expected Time")]
         public string ExpectedTime { get; set; }
