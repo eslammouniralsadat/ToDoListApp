@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace ToDoListApp.Models
 {
@@ -13,5 +14,12 @@ namespace ToDoListApp.Models
         [Required]
         [MaxLength(2500)]
         public string Note { get; set; }
+
+        [Required]
+        [DisplayName("Addition Time")]
+        public DataType AdditionTime { get; set; }
+
+        [DisplayName("Expected Time")]
+        public string ExpectedTime { get; set; }
     }
 }
